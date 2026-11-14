@@ -2,8 +2,6 @@ package com.github.libretube.helpers
 
 import android.content.Context
 import android.os.Build
-import android.telephony.TelephonyManager
-import androidx.core.content.getSystemService
 import androidx.core.os.ConfigurationCompat
 import com.github.libretube.constants.PreferenceKeys
 import com.github.libretube.obj.Country
@@ -34,10 +32,7 @@ object LocaleHelper {
     }
 
     fun getDetectedCountry(context: Context): String {
-        return detectSIMCountry(context)
-            ?: detectNetworkCountry(context)
-            ?: detectLocaleCountry(context)
-            ?: "UK"
+    return detectLocaleCountry(context) ?: "UK"
     }
 
     private fun detectSIMCountry(context: Context): String? {
